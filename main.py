@@ -4,6 +4,7 @@ import uuid
 from ultralytics import YOLO
 import glob
 
+os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
 st.set_page_config(page_title="Helmet Detection", layout="centered")
 
 st.title("🪖 Helmet Detection")
