@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import uuid
-from ultralytics import YOLO
+# from ultralytics import YOLO
 import glob
 
 os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
@@ -29,13 +29,15 @@ if uploaded_video is not None:
     st.subheader("📥 Uploaded Video")
     st.video(input_video_path)
 
-    # ------------------ LOAD MODEL ------------------
-    model = YOLO("model.pt")  # must exist in repo
 
     # ------------------ BUTTON TO RUN DETECTION ------------------
     if st.button("Run Helmet Detection"):
         st.subheader("🔍 Detecting Helmets...")
         with st.spinner("Processing video... Please wait"):
+
+            from ultralytics import YOLO
+            model = YOLO("best.pt")
+            st.success("Model loaded successfully ✅")
 
             results = model.predict(
                 source=input_video_path,
