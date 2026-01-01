@@ -3,7 +3,9 @@ import os
 import uuid
 # from ultralytics import YOLO
 import glob
+import sys
 
+st.write("Python:", sys.version)
 os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
 st.set_page_config(page_title="Helmet Detection", layout="centered")
 
